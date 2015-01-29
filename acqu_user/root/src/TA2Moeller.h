@@ -10,6 +10,7 @@ private:
   UShort_t fNLeftChannels;
   UShort_t fNPairsPerCh;
   UInt_t fNBins;
+  UShort_t fCounter;
   std::vector<UInt_t> fVupromOffset;
   std::vector<UInt_t*> fTDCs;          // pointers to NBins long histogram arrays
   std::vector<const char*> fTDCDisplayLines; // pointers to histogram Display line

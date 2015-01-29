@@ -9,7 +9,7 @@ static const Map_t kMoellerKeys[] = {
   {"MoellerSetup:",     EMoellerSetup},   
   {"VupromOffset:",     EVupromOffset},
   {"DisplayAllHistos:", EDisplayAllHistos},
-  {NULL,            -1}
+  {NULL,                -1}
 };
 
 
@@ -93,6 +93,8 @@ void TA2Moeller::LoadVariable( )
   fTDCs.resize(fVupromOffset.size()*fNLeftChannels*fNPairsPerCh*2);
   fTDCDisplayLines.resize(fTDCs.size());
   
+  fCounter = 0;
+
   // loop over the combinations
   for(UShort_t i=0;i<fVupromOffset.size();i++) {
     for(UShort_t j=0;j<fNLeftChannels;j++) {
@@ -108,6 +110,10 @@ void TA2Moeller::LoadVariable( )
           for(UInt_t l=0;l<fNBins;l++)
             ptr[l] = 0;
           fTDCs[idx] = ptr;
+
+	  for ( UShort_t binn = 0; binn < 256; binn++ )
+	    fTDCs[idx][binn] = 0.0; 
+
           // construct the name
           stringstream ss; // = new stringstream();        
           ss << "TDC_Vup_Left_Pair_Hel_";
@@ -143,7 +149,9 @@ void TA2Moeller::PostInit( )
 void TA2Moeller::Decode()
 {
   if(gAR->IsScalerRead()) {
-    //cout << "Scaler read" << endl;
+    //     cout << "Scaler read -- fReadoutStarted = " << fReadoutStarted 
+    // 	 << "\t" << (fScaler[fVupromOffset[0]] & 0xff000000) 
+    // 	     << " ?==? " << 0xaa000000 <<endl;
     // check for start marker, sent out by the first Vuprom
     UInt_t marker = fScaler[fVupromOffset[0]];
     if((marker & 0xff000000) == 0xaa000000) {
@@ -151,8 +159,9 @@ void TA2Moeller::Decode()
         //cerr << "Another readout although previous wasn't done. Skipping." << endl;
         return;
       }
+      fCounter++;
       //UInt_t nReadouts = marker & 0xffff;
-      //cout << "Moeller readout: "<< nReadouts << endl;
+      //cout << "Moeller readout: "<< nReadouts << "\t counter " << fCounter <<endl;
       // fScaler[fOffset+1] and fScaler[fOffset+2] 
       // contain a timestamp
       fNvaluesRead=0;
@@ -161,6 +170,12 @@ void TA2Moeller::Decode()
       return;
     }
   }
+
+  // the first Moeller readout has to be discarded
+  // it may be that the system is not yet properly initialized
+  if (fReadoutStarted && fCounter==1)
+    fReadoutStarted = false;
+
   if(fReadoutStarted) {
     
     for(UShort_t i=0;i<fVupromOffset.size();i++) {
@@ -191,7 +206,7 @@ void TA2Moeller::Decode()
               k * 2 +
               hel;
           //cout << " Bin " << bin << " Data " << value << endl;
-          fTDCs[idx][bin] = value;
+	  fTDCs[idx][bin] += value;
           fNvaluesRead++;
           if(fNvaluesRead == fTDCs.size()*fNBins) {
             //cout << "Moeller readout done" << endl;
