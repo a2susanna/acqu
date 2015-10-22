@@ -55,6 +55,7 @@ BitPattern:  AR-Analysis-TriggerPat.dat
 Apparatus:      TAGG            TA2Tagger   		AR-Analysis-Tagger.dat
 Apparatus:      CB              TA2CentralApparatus	AR-Analysis-CentApp.dat
 Apparatus:      TAPS            TA2Taps		  	AR-Analysis-TAPS.dat
+Apparatus:      BeamPolMon      TA2BeamPolMon           Apparatus-BeamPolMon.dat
 ##
 ## Turn on apparatus-level reconstruction
 Reconstruct-Analysis:
@@ -94,6 +95,8 @@ Finish: 	root/macros/FinishBatch.C	FinishBatch()
 #Display: SumScaler 192 203
 #Display: Scaler 204 555
 #Display: SumScaler 204 555
+Display: Scaler 0 8700
+Display: SumScaler 0 8700
 ##
 ## Time dependence of individual scaler rates and ratios
 Display: Rate	0	500

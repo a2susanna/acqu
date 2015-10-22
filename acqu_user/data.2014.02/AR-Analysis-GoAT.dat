@@ -26,13 +26,18 @@ Reconstruct:
 #Use-CaLib-Veto:     1       1       0
 
 #Use-CaLib-CBEnergyPerRun: 	data/CBEnergyCorrectionPerRun.txt
-#RootTree-Output-Folder:         ~/work/
+RootTree-Output-Folder:         ~/acqu_jan15/acqu/acqu_user/AcquOutput/
 RootTree-File-Name:		Acqu
 
 # Optional argument to include tagged photon energies in the tagger tree
 # GoAT currently handles this with an included histogram, reducing file size
 #
 #Save-Tagged-Energy: 1
+
+# Old setting
+#Beam-Helicity: 6 I H L L H
+# New setting - since new DAQ
+Beam-Helicity: 7 H I H L
 
 Initialise:
 

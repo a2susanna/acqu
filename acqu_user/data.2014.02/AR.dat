@@ -7,7 +7,7 @@
 ########################################################################
 ##
 ## Batch mode operation...redirect output directory for log files etc.
-BatchDir: /home/martel/acqu/acqu_user/
+BatchDir: /home/susanna/acqu_jan15/acqu/acqu_user/batchDir/
 ##
 ##        Tree Name     	# branches	Process Type
 Name:     RawEvent_AR_Save	3		Raw
@@ -17,7 +17,7 @@ Branch:	  RawEvent_Scalers	4192
 Branch:	  Mk1_Header            120000
 ##
 ## Directory to save any created ROOT files (include final / )
-Directory: /home/martel/acqu/acqu_user/
+Directory: /home/susanna/acqu_jan15/acqu/acqu_user/
 ##
 ## User-defined analysis class
 Analysis: TA2UserAnalysis
