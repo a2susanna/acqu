@@ -138,7 +138,7 @@ int main(int argc, char **argv)
   Int_t runThreads;  //threads started within this Worker instance
   Int_t runThreadsOld;
   pid_t pid;
-  Int_t nThreads = 8;  //user's choice of threads to run
+  Int_t nThreads = 13;  //user's choice of threads to run
   Bool_t Offline = false;
   Bool_t Busy;
   Char_t Config[256];
