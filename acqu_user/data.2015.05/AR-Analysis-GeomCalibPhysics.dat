@@ -1,0 +1,206 @@
+## SVN info: $Id: GeomCalibPhysics.dat 124 2013-05-28 02:49:45Z mushkar $
+##
+## Particle data group database,	max # particles
+ParticleID:				16
+##
+## Do some post-initialisation.
+## Should usually be done before display is setup
+Initialise:
+##
+# Cut specification...see apparatus setup, same syntax applies
+#         1/2D 	Name      	Link    Scope   Low/High Limits
+#
+# Histograms of physics-level variables
+# histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+#    for 1D      Name        	chan/low/high   min/max condition(opt)
+#    for 2D     X-Name  X-ch/low/high/id  	Y-Name   Y-ch/low/high/id  Cond(opt)
+#
+
+# E-IW
+# 0
+Display:	1D	PhiInters0	180	 0	360
+Display:	1D	ZInters0	200	-400	400
+Display:	2D	ZInters0	200	-400	400	-1	PhiInters0	180	0	360	-1
+Display:	1D	DphiEI0		400	-20	20
+Display:	2D	ZInters0	200	-400	400	-1	DphiEI0		400	-20	20	-1	
+Display:	2D	CGclW0		232	 0	232	-1	DphiEI0		400	-20	20	-1
+Display:	2D	CGclI0		69	 0	69	-1	DphiEI0		400	-20	20	-1
+Display:	2D	CGclE0		77	 0	77	-1	DphiEI0		400	-20	20	-1
+Display:	2D	PhiEI0		180	 0	360	-1	DphiEI0		400	-20	20	-1
+
+# 1
+Display:	1D	PhiInters1	180	 0	360
+Display:	1D	ZInters1	200	-400	400
+Display:	2D	ZInters1	200	-400	400	-1	PhiInters1	180	0	360	-1
+Display:	1D	DphiEI1		400	-20	20
+Display:	2D	ZInters1	200	-400	400	-1	DphiEI1		400	-20	20	-1
+Display:	2D	CGclW1		296	 0	296	-1	DphiEI1		400	-20	20	-1
+Display:	2D	CGclI1		89	 0	89	-1	DphiEI1		400	-20	20	-1
+Display:	2D	CGclE1		97	 0	97	-1	DphiEI1		400	-20	20	-1
+Display:	2D	PhiEI1		180	 0	360	-1	DphiEI1		400	-20	20	-1
+
+# Mwpc_i -> Mwpc_0
+Display:	1D	DPhiIntersMwpc0	180	-380	380
+Display:	1D	DphiMwpc21	200	-10	10
+Display:	1D	DxMwpc21	100	-10	10
+Display:	1D	DyMwpc21	100	-30	30
+Display:	1D	DzMwpc21	150	-15	15
+Display:	2D	Z0Mwpc21	150	-300	300	-1	DxMwpc21	100	-10	10	-1
+Display:	2D	Z0Mwpc21	150	-300	300	-1	DyMwpc21	100	-30	30	-1
+Display:	2D	Z0Mwpc21	150	-300	300	-1	DzMwpc21	150	-15	15	-1
+Display:	2D	Z0Mwpc21	150	-300	300	-1	DphiMwpc21	200	-10	10	-1
+#
+Display:	1D	DTetTracks2	120	-30	30
+Display:	1D	DTetTracks	120	-30	30
+Display:	1D	DxInterMwpc1	100	-15	15
+Display:	1D	DyInterMwpc1	100	-5	5
+Display:	1D	DzInterMwpc1	100	-15	15
+Display:	1D	DphiInterMwpc1	40	-5	5
+Display:	1D	ZinterMwpc1	200	-400	400
+Display:	2D	ZinterMwpc1	200	-400	400	-1	DxInterMwpc1	100	-15	15	-1
+Display:	2D	ZinterMwpc1	200	-400	400	-1	DyInterMwpc1	50	-5	5	-1
+Display:	2D	ZinterMwpc1	200	-400	400	-1	DzInterMwpc1	100	-15	15	-1
+Display:	2D	ZinterMwpc1	200	-400	400	-1	DphiInterMwpc1	40	-5	5	-1
+Display:	1D	PhiInterMwpc1	90	0	360
+Display:	2D	PhiInterMwpc1	90	0	360	-1	DxInterMwpc1	100	-15	15	-1
+Display:	2D	PhiInterMwpc1	90	0	360	-1	DyInterMwpc1	50	-5	5	-1
+Display:	2D	PhiInterMwpc1	90	0	360	-1	DzInterMwpc1	100	-15	15	-1
+Display:	2D	PhiInterMwpc1	90	0	360	-1	DphiInterMwpc1	40	-5	5	-1
+#
+Display:	1D	DPsiTracks	180	 0	180
+Display:	1D	DPhiTracks	240	-30	30
+Display:	1D	ThetaTracks	180	0	180
+Display:	1D	ThetaTracks2	180	0	180
+Display:	1D	PhiTracks	180	0	360
+Display:	2D	ThetaTracks	180	0	180	-1	DTetTracks	120	-30	30	-1
+Display:	2D	ThetaTracks	180	0	180	-1	DPhiTracks	240	-30	30	-1
+Display:	2D	PhiTracks	180	0	360	-1	DTetTracks	120	-30	30	-1
+Display:	2D	PhiTracks	180	0	360	-1	DPhiTracks	240	-30	30	-1
+Display:	1D	DzPsVertexTracks	100	-50	50
+Display:	2D	ThetaTracks	180	0	180	-1	DzPsVertexTracks	100	-50	50	-1
+Display:	2D	ThetaTracks	180	0	180	-1	DzMwpc21	150	-15	15	-1
+Display:	2D	PhiTracks	180	0	360	-1	DzPsVertexTracks	100	-50	50	-1
+Display:	2D	PhiTracks	180	0	360	-1	DzMwpc21	150	-15	15	-1
+#
+Display:	2D	ThetaTracks2	180	0	180	-1	DTetTracks2	120	-30	30	-1
+
+
+# Mwpc_i -> NaI
+# 0
+Display:	1D	DPhiClNaI0			100	-180	180
+Display:	1D	DPsiTracksMwpc0NaI		180	 0	180
+Display:	1D	DPsiTracksSingleMwpc0NaI	180	 0	180
+Display:	1D	DPhiTracksMwpc0NaI		120	-30	30
+Display:	1D	DPhiTracksSingleMwpc0NaI	120	-30	30
+Display:	1D	DTetTracksMwpc0NaI		120	-30	30
+Display:	1D	ThetaTracksMwpc0NaI		180	0	180
+Display:	1D	PhiTracksMwpc0NaI		180	0	360
+Display:	2D	ThetaTracksMwpc0NaI		180	0	180	-1	DTetTracksMwpc0NaI	120	-30	30	-1
+Display:	2D	ThetaTracksMwpc0NaI		180	0	180	-1	DPhiTracksMwpc0NaI	120	-30	30	-1
+Display:	2D	PhiTracksMwpc0NaI		180	0	360	-1	DTetTracksMwpc0NaI	120	-30	30	-1
+Display:	2D	PhiTracksMwpc0NaI		180	0	360	-1	DPhiTracksMwpc0NaI	120	-30	30	-1
+Display:	1D	DzPsVertexTracksMwpc0NaI	100	-50	50
+Display:	2D	ThetaTracksMwpc0NaI	180	0	180	-1	DzPsVertexTracksMwpc0NaI	100	-50	50	-1
+Display:	2D	ThetaTracksMwpc0NaI	180	0	180	-1	DzMwpc0NaI	150	-150	150	-1
+Display:	2D	PhiTracksMwpc0NaI	180	0	360	-1	DzPsVertexTracksMwpc0NaI	100	-50	50	-1
+Display:	2D	PhiTracksMwpc0NaI	180	0	360	-1	DzMwpc0NaI	150	-150	150	-1
+Display:	1D	DTetTracksSingleMwpc0NaI	120	-30	30
+#
+Display:	1D	DphiMwpc0NaI	240	-30	30
+Display:	1D	DxMwpc0NaI	100	-100	100
+Display:	2D	Z0Mwpc0NaI	150	-300	300	-1	DxMwpc0NaI	100	-100	100	-1
+Display:	1D	DyMwpc0NaI	100	-100	100
+Display:	2D	Z0Mwpc0NaI	150	-300	300	-1	DyMwpc0NaI	100	-100	100	-1
+Display:	1D	DzMwpc0NaI	150	-150	150
+Display:	2D	Z0Mwpc0NaI	150	-300	300	-1	DzMwpc0NaI	150	-150	150	-1
+Display:	2D	Z0Mwpc0NaI	150	-300	300	-1	DphiMwpc0NaI	240	-30	30	-1
+#
+Display:	1D	DxInterMwpc0NaI	100	-100	100
+Display:	1D	DyInterMwpc0NaI	100	-50	50
+Display:	1D	DzInterMwpc0NaI	100	-100	100
+Display:	1D	DphiInterMwpc0NaI	50	-50	50
+Display:	1D	ZinterMwpc0NaI	150	-300	300
+Display:	2D	ZinterMwpc0NaI	150	-300	300	-1	DxInterMwpc0NaI	100	-100	100	-1
+Display:	2D	ZinterMwpc0NaI	150	-300	300	-1	DyInterMwpc0NaI	100	-50	50	-1
+Display:	2D	ZinterMwpc0NaI	150	-300	300	-1	DzInterMwpc0NaI	100	-100	100	-1
+Display:	2D	ZinterMwpc0NaI	150	-300	300	-1	DphiInterMwpc0NaI	50	-50	50	-1
+Display:	1D	PhiInterMwpc0NaI	90	0	360
+Display:	2D	PhiInterMwpc0NaI	90	0	360	-1	DxInterMwpc0NaI	100	-100	100	-1
+Display:	2D	PhiInterMwpc0NaI	90	0	360	-1	DyInterMwpc0NaI	100	-50	50	-1
+Display:	2D	PhiInterMwpc0NaI	90	0	360	-1	DzInterMwpc0NaI	100	-100	100	-1
+Display:	2D	PhiInterMwpc0NaI	90	0	360	-1	DphiInterMwpc0NaI	50	-50	50	-1
+# 1
+Display:	1D	DPhiClNaI1			100	-180	180
+Display:	1D	DPsiTracksMwpc1NaI		180	 0	180
+Display:	1D	DPsiTracksSingleMwpc1NaI	180	 0	180
+Display:	1D	DPhiTracksMwpc1NaI		120	-30	30
+Display:	1D	DPhiTracksSingleMwpc1NaI	120	-30	30
+Display:	1D	DTetTracksMwpc1NaI		120	-30	30
+Display:	1D	ThetaTracksMwpc1NaI		180	0	180
+Display:	1D	PhiTracksMwpc1NaI		180	0	360
+Display:	2D	ThetaTracksMwpc1NaI		180	0	180	-1	DTetTracksMwpc1NaI	120	-30	30	-1
+Display:	2D	ThetaTracksMwpc1NaI		180	0	180	-1	DPhiTracksMwpc1NaI	120	-30	30	-1
+Display:	2D	PhiTracksMwpc1NaI		180	0	360	-1	DTetTracksMwpc1NaI	120	-30	30	-1
+Display:	2D	PhiTracksMwpc1NaI		180	0	360	-1	DPhiTracksMwpc1NaI	120	-30	30	-1
+Display:	1D	DzPsVertexTracksMwpc1NaI	100	-50	50
+Display:	2D	ThetaTracksMwpc1NaI	180	0	180	-1	DzPsVertexTracksMwpc1NaI	100	-50	50	-1
+Display:	2D	ThetaTracksMwpc1NaI	180	0	180	-1	DzMwpc1NaI	150	-150	150	-1
+Display:	2D	PhiTracksMwpc1NaI	180	0	360	-1	DzPsVertexTracksMwpc1NaI	100	-50	50	-1
+Display:	2D	PhiTracksMwpc1NaI	180	0	360	-1	DzMwpc1NaI	150	-150	150	-1
+Display:	1D	DTetTracksSingleMwpc1NaI	120	-30	30
+#
+Display:	1D	DphiMwpc1NaI	240	-30	30
+Display:	1D	DxMwpc1NaI	100	-100	100
+Display:	2D	Z0Mwpc1NaI	150	-300	300	-1	DxMwpc1NaI	100	-100	100	-1
+Display:	1D	DyMwpc1NaI	100	-100	100
+Display:	2D	Z0Mwpc1NaI	150	-300	300	-1	DyMwpc1NaI	100	-100	100	-1
+Display:	1D	DzMwpc1NaI	150	-150	150
+Display:	2D	Z0Mwpc1NaI	150	-300	300	-1	DzMwpc1NaI	150	-150	150	-1
+Display:	2D	Z0Mwpc1NaI	150	-300	300	-1	DphiMwpc1NaI	240	-30	30	-1
+#
+Display:	1D	DxInterMwpc1NaI	100	-100	100
+Display:	1D	DyInterMwpc1NaI	100	-50	50
+Display:	1D	DzInterMwpc1NaI	100	-100	100
+Display:	1D	DphiInterMwpc1NaI	50	-50	50
+Display:	1D	ZinterMwpc1NaI	150	-300	300
+Display:	2D	ZinterMwpc1NaI	150	-300	300	-1	DxInterMwpc1NaI	100	-100	100	-1
+Display:	2D	ZinterMwpc1NaI	150	-300	300	-1	DyInterMwpc1NaI	100	-50	50	-1
+Display:	2D	ZinterMwpc1NaI	150	-300	300	-1	DzInterMwpc1NaI	100	-100	100	-1
+Display:	2D	ZinterMwpc1NaI	150	-300	300	-1	DphiInterMwpc1NaI	50	-50	50	-1
+Display:	1D	PhiInterMwpc1NaI	90	0	360
+Display:	2D	PhiInterMwpc1NaI	90	0	360	-1	DxInterMwpc1NaI	100	-100	100	-1
+Display:	2D	PhiInterMwpc1NaI	90	0	360	-1	DyInterMwpc1NaI	100	-50	50	-1
+Display:	2D	PhiInterMwpc1NaI	90	0	360	-1	DzInterMwpc1NaI	100	-100	100	-1
+Display:	2D	PhiInterMwpc1NaI	90	0	360	-1	DphiInterMwpc1NaI	50	-50	50	-1
+
+# Mwpc_i -> Pid
+# 0
+Display:	1D	DphiMwpc0Pid		60	-30	30
+Display:	1D	DPsiTracksMwpc0Pid	180	 0	180
+Display:	1D	DPhiTracksMwpc0Pid	120	-30	30
+Display:	1D	DxMwpc0Pid		100	-100	100
+Display:	1D	DyMwpc0Pid		100	-100	100
+Display:	1D	DPhiHitsPid0		180	-180	180
+Display:	1D	DphiInterMwpc0HitPid	100	-30	30
+Display:	2D	ZinterMwpc0Pid		100	-300	300	-1	DphiInterMwpc0HitPid	100	-30	30	-1
+Display:	2D	IhitPid0		24	0	24	-1	DphiInterMwpc0HitPid	100	-30	30	-1
+# 1
+Display:	1D	DphiMwpc1Pid		60	-30	30
+Display:	1D	DPsiTracksMwpc1Pid	180	 0	180
+Display:	1D	DPhiTracksMwpc1Pid	120	-30	30
+Display:	1D	DxMwpc1Pid		100	-100	100
+Display:	1D	DyMwpc1Pid		100	-100	100
+Display:	1D	DPhiHitsPid1		180	-180	180
+Display:	1D	DphiInterMwpc1HitPid	100	-30	30
+Display:	2D	ZinterMwpc1Pid		100	-300	300	-1	DphiInterMwpc1HitPid	100	-30	30	-1
+Display:	2D	IhitPid1		24	0	24	-1	DphiInterMwpc1HitPid	100	-30	30	-1
+
+# Pid -> NaI
+Display:	1D	DphiPidNaI		60	-30	30
+Display:	1D	DphiClNaIwithPid	100	-180	180
+Display:	1D	DPsiTracksPidNaI	180	 0	180
+Display:	1D	DPhiTracksPidNaI	120	-30	30
+Display:	1D	DxPidNaI		100	-100	100
+Display:	1D	DyPidNaI		100	-100	100
+
+## END

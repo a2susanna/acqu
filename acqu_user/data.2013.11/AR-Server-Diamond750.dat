@@ -1,0 +1,122 @@
+#-----------------------------------------------------------------------
+#--Author	JRM Annand   13th Jan 2004
+#--Update	JRM Annand... 1st Dec 2004
+#--Description
+#                *** Acqu++ <-> Root ***
+# Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+#
+# Parameter File: FPcommServer.Offline
+# Configuration File for DataServer (data input for analysis)
+#
+#-----------------------------------------------------------------------
+# Number of Input streams (sources of data), Record length to write data
+# and switch 0/1 = no/yes to control data write
+#              Number streams	Record Len	Save Data
+Input-Streams:	1		32768		0
+#
+# Optional directory spec. If not specified File-Names must contain the full
+# directory path
+File-Directory: /media/susanna/perseus/CB_data/Nov13/Diamond750/
+#
+# Specify each input stream
+# From disk File, ACQU (Mk1) format, save any output to File (save=1)
+# Input data record length, Output data record length
+#
+#            	Source	Format	Save?	RecLen	Buffers	Swap	MarkID
+Stream-Spec:	File	Mk2	0	32768	32	0	400
+#
+# Now the list of data Files to analyse
+#		File Name	1st rec	Last rec
+#
+# Some December G and E polarization Obsevables
+# Positive polarization of the target
+#
+#Diamond
+#PERP
+##
+#Peak 750
+#
+File-Name:  CBTaggTAPS_544.dat 	0 	0
+File-Name:  CBTaggTAPS_545.dat	0 	0
+File-Name:  CBTaggTAPS_549.dat 	0 	0
+File-Name:  CBTaggTAPS_551.dat  	0	0
+File-Name:  CBTaggTAPS_556.dat 	0 	0
+File-Name:  CBTaggTAPS_558.dat	0 	0
+File-Name:  CBTaggTAPS_559.dat 	0 	0
+File-Name:  CBTaggTAPS_560.dat 	0 	0
+File-Name:  CBTaggTAPS_565.dat	0 	0
+File-Name:  CBTaggTAPS_566.dat	0 	0
+File-Name:  CBTaggTAPS_567.dat 	0 	0
+File-Name:  CBTaggTAPS_568.dat	0 	0
+File-Name:  CBTaggTAPS_573.dat 	0 	0
+File-Name:  CBTaggTAPS_574.dat 	0	0
+File-Name:  CBTaggTAPS_575.dat 	0 	0
+File-Name:  CBTaggTAPS_576.dat	0 	0
+#
+#Radiator: Diamond
+#PARA 
+#
+## Peak 750
+#
+File-Name:  CBTaggTAPS_552.dat	0 	0
+File-Name:  CBTaggTAPS_553.dat 	0 	0
+File-Name:  CBTaggTAPS_554.dat 	0 	0
+File-Name:  CBTaggTAPS_555.dat	0 	0
+File-Name:  CBTaggTAPS_561.dat	0 	0
+File-Name:  CBTaggTAPS_562.dat 	0 	0
+File-Name:  CBTaggTAPS_563.dat	0 	0
+File-Name:  CBTaggTAPS_564.dat 	0 	0
+File-Name:  CBTaggTAPS_571.dat	0 	0
+File-Name:  CBTaggTAPS_572.dat 	0 	0
+File-Name:  CBTaggTAPS_577.dat 	0 	0
+File-Name:  CBTaggTAPS_578.dat	0 	0
+File-Name:  CBTaggTAPS_580.dat	0 	0
+File-Name:  CBTaggTAPS_581.dat 	0 	0
+#
+# Negative polarization of the target (26.11.2013 to 6.12.2013) 
+#
+#Diamond
+#PERP
+#
+# Peak at 750
+#
+File-Name:  CBTaggTAPS_930.dat 	0 	0
+File-Name:  CBTaggTAPS_931.dat	0 	0
+File-Name:  CBTaggTAPS_932.dat 	0 	0
+File-Name:  CBTaggTAPS_933.dat 	0 	0
+File-Name:  CBTaggTAPS_938.dat	0 	0
+File-Name:  CBTaggTAPS_942.dat	0 	0
+File-Name:  CBTaggTAPS_982.dat 	0 	0
+File-Name:  CBTaggTAPS_983.dat 	0	0
+File-Name:  CBTaggTAPS_985.dat	0 	0
+File-Name:  CBTaggTAPS_990.dat 	0 	0
+File-Name:  CBTaggTAPS_991.dat 	0 	0
+File-Name:  CBTaggTAPS_993.dat	0 	0
+File-Name:  CBTaggTAPS_994.dat	0 	0
+#####################
+#Radiator: Diamond                     #
+#####################
+#PARA
+#
+# peak at 750
+#
+File-Name:  CBTaggTAPS_925.dat	0 	0
+File-Name:  CBTaggTAPS_926.dat 	0 	0
+File-Name:  CBTaggTAPS_934.dat 	0	0
+File-Name:  CBTaggTAPS_935.dat 	0 	0
+File-Name:  CBTaggTAPS_936.dat	0 	0
+File-Name:  CBTaggTAPS_937.dat 	0 	0
+File-Name:  CBTaggTAPS_978.dat 	0 	0
+File-Name:  CBTaggTAPS_979.dat	0 	0
+File-Name:  CBTaggTAPS_980.dat	0 	0
+File-Name:  CBTaggTAPS_981.dat 	0 	0
+File-Name:  CBTaggTAPS_986.dat	0 	0
+File-Name:  CBTaggTAPS_987.dat 	0 	0
+File-Name:  CBTaggTAPS_988.dat 	0	0
+File-Name:  CBTaggTAPS_989.dat 	0 	0
+File-Name:  CBTaggTAPS_995.dat	0 	0
+File-Name:  CBTaggTAPS_996.dat 	0 	0
+File-Name:  CBTaggTAPS_997.dat 	0 	0
+File-Name:  CBTaggTAPS_998.dat	0 	0
+#
+# END

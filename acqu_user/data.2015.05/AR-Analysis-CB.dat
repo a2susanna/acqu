@@ -1,0 +1,142 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   29th Apr 2003
+##--Update	JRM Annand...17th May 2005
+##--Description
+##                *** Acqu++ <-> Root ***
+## Analysis of Sub-Atomic Physics Experimental Data
+##
+## Parameter File: AR-Analysis-CB.dat (specified in AR-Analysis.dat)
+## or equivalent
+##
+##-----------------------------------------------------------------------
+##
+## Specify list of detectors which constitute the Crystal Ball apparatus
+##	  Name       Class Name      Setup file
+Detector: NaI        TA2CalArray     AR-Analysis-CB-NaI.dat
+Detector: PID        TA2PlasticPID   AR-Analysis-CB-PID.dat
+##
+## Data reconstruction method for Crystal Ball
+Reconstruct:
+##
+## PDG database	# particles
+ParticleID: 	16
+##
+## Angle-difference limits (in deg.)  for hits correlation
+##              PID	MWPC
+AngleLimits:	15.0	20.0
+##
+## Do some post-initialisation.
+## Should usually be done before display is setup
+Initialise:
+##
+## Periodic procedure to execute every N * NA events
+## NA is the period specified in the analysis (see CBanalysis.dat).
+## Thus if NA = 100000, CBPeriodMacro() will execute every 200000 events
+## If no analysis periodic specified, no apparatus periodic will execute
+##	N	Macro File		Macro Procedure
+#Period: 2	CBPeriodMacro.C		CBPeriodMacro()
+##
+## Cut specification
+## NB 2D cuts, ie a general polygon on the X-Y plane not yet implemented
+## Simple rectangle cuts may be made by an AND of X and Y conditions
+##         1/2D Name     	Link   Scope          Low/High Limits
+#Data-Cut: 1D   PID_Nhits	AND     histogram	2   16
+#Data-Cut: 1D   NaI_ClNhits	AND     data		2   16
+##
+## Proton and Pion dE-E cuts for particle ID
+## kProton = 2212 kPiPlus=211 kElectron=11
+##        2D x-var    Link scope y-var name     file       ix iy   i PDG
+#Data-Cut: 2D Echarged AND  histogram DeltaE Proton   Proton.root 0  0   0 2212
+##
+Data-Cut: 2D EchargedOR AND  misc DeltaEOR Proton cuts/CB_DeltaE-E_Proton.root 0  0   0 2212
+Data-Cut: 2D EchargedOR AND  misc DeltaEOR Pion   cuts/CB_DeltaE-E_Pion.root   0  0   0 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 1  1   1 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   1  1   1 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 2  2   2 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   2  2   2 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 3  3   3 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   3  3   3 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 4  4   4 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   4  4   4 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 5  5   5 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   5  5   5 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 6  6   6 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   6  6   6 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 7  7   7 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   7  7   7 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 8  8   8 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   8  8   8 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 9  9   9 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   9  9   9 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 10 10 10 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   10 10 10 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 11 11 11 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   11 11 11 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 12 12 12 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   12 12 12 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 13 13 13 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   13 13 13 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 14 14 14 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   14 14 14 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 15 15 15 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   15 15 15 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 16 16 16 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   16 16 16 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 17 17 17 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   17 17 17 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 18 18 18 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   18 18 18 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 19 19 19 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   19 19 19 211
+#
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 20 20 20 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   20 20 20 211
+#
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 21 21 21 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   21 21 21 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 22 22 22 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   22 22 22 211
+#Data-Cut: 2D Echarged AND  misc DeltaE Proton   Proton.root 23 23 23 2212
+#Data-Cut: 2D Echarged AND  misc DeltaE Pion     Pion.root   23 23 23 211
+##
+##		#Cuts	#Sectors
+ParticleID-Cut: 48	24
+##
+##
+## Histograms of apparatus-level variables
+## histogram name should be preceeded by 1D or 2D (for dimension of spectrum)
+Display: 2D PID_Hits 24 0 24 -1              NaI_ClPhi 180 -180 180 -1
+#
+#Display: 2D Echarged 100 0 500 0   DeltaE 100 0 5 0 Proton
+Display: 2D Echarged 100 0 500 0   DeltaE 100 0 5 0
+Display: 2D Echarged 100 0 500 1   DeltaE 100 0 5 1
+Display: 2D Echarged 100 0 500 2   DeltaE 100 0 5 2
+Display: 2D Echarged 100 0 500 3   DeltaE 100 0 5 3
+Display: 2D Echarged 100 0 500 4   DeltaE 100 0 5 4
+Display: 2D Echarged 100 0 500 5   DeltaE 100 0 5 5
+Display: 2D Echarged 100 0 500 6   DeltaE 100 0 5 6
+Display: 2D Echarged 100 0 500 7   DeltaE 100 0 5 7
+Display: 2D Echarged 100 0 500 8   DeltaE 100 0 5 8
+Display: 2D Echarged 100 0 500 9   DeltaE 100 0 5 9
+Display: 2D Echarged 100 0 500 10   DeltaE 100 0 5 10
+Display: 2D Echarged 100 0 500 11   DeltaE 100 0 5 11
+Display: 2D Echarged 100 0 500 12   DeltaE 100 0 5 12
+Display: 2D Echarged 100 0 500 13   DeltaE 100 0 5 13
+Display: 2D Echarged 100 0 500 14   DeltaE 100 0 5 14
+Display: 2D Echarged 100 0 500 15   DeltaE 100 0 5 15
+Display: 2D Echarged 100 0 500 16   DeltaE 100 0 5 16
+Display: 2D Echarged 100 0 500 17   DeltaE 100 0 5 17
+Display: 2D Echarged 100 0 500 18   DeltaE 100 0 5 18
+Display: 2D Echarged 100 0 500 19   DeltaE 100 0 5 19
+Display: 2D Echarged 100 0 500 20   DeltaE 100 0 5 20
+Display: 2D Echarged 100 0 500 21   DeltaE 100 0 5 21
+Display: 2D Echarged 100 0 500 22   DeltaE 100 0 5 22
+Display: 2D Echarged 100 0 500 23   DeltaE 100 0 5 23
+#
+#
+#Display: 1D ECentral 20 0 1. 0 23
+#Display: 3D Echarged 100 0 500 0 DeltaEdouble 100 0 5 0 ECentral 20 0 1. 0
+#
+#Display: 1D DeltaTheta 50  0   50 -1
+#Display: 1D DeltaPhi   100 -50 50 0 23
+

@@ -1,0 +1,36 @@
+########################################################################
+## Parameter File: AR.dat
+########################################################################
+## Master parameter file for Acqu-Root analysis.
+## Expected to reside in directory $acqu/data/
+## To use invoke for example... AcquRoot AR.dat
+########################################################################
+##
+## Batch mode operation...redirect output directory for log files etc.
+BatchDir: /home/susanna/acqu_jan15/acqu/acqu_user/batchDir/
+##
+##        Tree Name     	# branches	Process Type
+Name:     RawEvent_AR_Save	3		Raw
+##        Branch Name		Buffer size
+Branch:   RawEvent_Hits		32768
+Branch:	  RawEvent_Scalers	4192
+Branch:	  Mk1_Header            120000
+##
+## List of Tree files which will form the input TChain for --offline running
+##
+## Directory to save any created ROOT files (include final / )
+Directory: /media/susanna/pegasus/G_E_Nov13/AROutput/
+##
+## User-defined analysis class
+Analysis: TA2UserAnalysis
+##
+## Analysis setup file
+AnalysisSetup: AR-Analysis.dat
+##
+## Fragmented scaler blocks
+## 2 blocks, 192 scalers from CB, 492 scalers from Tagger
+#SplitScaler: 2 256 364
+##
+## Set up of data files
+
+ServerSetup: Thread6Server.dat
