@@ -6,11 +6,15 @@
 /scratch
 /output
 /batch
+/batchDir
 /Thread*.txt
 *.log
 /result
 /evgen/
 /simfiles/
+do_*
+/MC_data/
+/data*/Thread*
 
 # AcquRoot histogram files
 /histograms
