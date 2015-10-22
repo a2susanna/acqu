@@ -1,0 +1,72 @@
+##-----------------------------------------------------------------------
+##--Author	JRM Annand   11th May 2006
+##--Update
+##--Description
+##                *** Acqu++ <-> Root ***
+## Online/Offline Analysis of Sub-Atomic Physics Experimental Data 
+##
+## Master parameter file for Monte Carlo reaction event generator
+## Expected to reside in directory $acqu/data/
+## Radiative Pi0 photo production on the proton
+## Radiated photon energy from Breit-Wigner
+## To use invoke... MCGenerator GP_GPPi0.dat
+##-----------------------------------------------------------------------
+Foam-Model:	SAID
+##		#events/run	Random seed	#runs
+Number-Throws:	1000000		888888		1
+##
+## Baryon resonances
+##		Name	PDG code
+Resonance:	P33	2214
+##		Name	Peak Mass(GeV)	Width(GeV)
+Resonance:	S11	1.535		0.150
+##			N-Dim	Interp-Opt	DB File
+Foam-Distribution:	3	0		data/ppi0_145-1500.db
+##
+##	Index Egamma	Low	High (GeV)
+Foam-Limits:	0	0.2395 	0.2405
+##
+##		Polarisation Vectors
+Beam-Pol: 	1.00 0.00 0.00   
+Target-Pol:	0.00 0.00 0.00   
+Recoil-Pol:	0.00 0.00 0.00
+##
+##		nCell nSampl nBin OptRej OptDr Ev/Bin Chat MaxWgtRej
+#Foam-Option:	2000   1000   100  1      2     100    1    1.1
+Foam-Option:	5000   2000   200  1      2     100    1    1.1
+##
+## Beam parameters, energy from Foam, theta...cos(theta) = Gaussian
+##	PDG-index	Source x,y,z (cm)
+Beam: 	22		0.0 0.0 -500.
+Foam:	Beam	  	-1 -1 -1 0 -1
+P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)	  0.9999975 1.0  2000
+##
+##	Mass		Radius	Length	Center (x,y,z)
+##	3He
+Target: 1000020030 	2.5	5.0   	0.0 0.0 0.0
+##
+## The reaction "particle"
+##	  Name		PDG/Res	Decay?	Track?	Parent	 Opt
+Particle: Reaction	P33	1	0	NULL	 Quasi-Free-NBC
+Particle: QP		2212    1	0	Reaction NULL
+P-Distr: QP P-Dist 	x*x*TMath::Gaus(x,0.0,0.045)	0.0 0.5 5000
+#P-Distr: QP P-Dist 	TMath::Gaus(x,0.0,0.11)	0.0 0.5 5000
+Particle: H2   1000010020	0	0	Reaction NULL
+##
+## Decay Delta -> p, pi0
+##	  Name		PDG	Decay?	Track?	Parent	Opt
+Particle: Pi0		111	1	0	QP      NULL
+Foam:     Pi0 		1 -1 2 -1 -1
+Particle: Proton	2212	0	1	QP      NULL
+##
+## Weight TFoam density
+## Brem on Ebeam(0); SinTh on Theta-gamma'(2); SinTh on Theta-pi(4)
+#Foam-Weight:	Bremsstrahlung	0
+##
+## Pi0 decay particles
+Particle: Gamma_1	22	0	1	Pi0	NULL
+Particle: Gamma_2	22	0	1	Pi0	NULL
+##
+#Particle-Output:    /scratch/jrma/G3He_PPi02H_QFSAID_240_1MP	2
+#Tree-Output:    /scratch/jrma/G3He_PPi02H_QFSAID_240_1MT	2
+Ntuple-Output:  /scratch/jrma/G3He_PPi02H_QFSAID_240_1MN

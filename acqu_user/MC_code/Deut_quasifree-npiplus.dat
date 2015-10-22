@@ -1,0 +1,69 @@
+#
+#
+#
+#
+##		#events/run	Random seed	#runs
+#Number-Throws:   10000000	 99257    	1     
+Number-Throws:   5000	 99257    	1     
+#
+#
+#
+# Hadronic resonances:
+#		Name	PDG code
+Resonance:	P33	2214
+#
+#
+#
+# Beam Parameters:
+#	Mass (GeV)	source x,y,z (cm)
+Beam:	0.0		0.0 0.0 -500.
+#
+#
+#
+# Beam Kinetic Energy	Form			Min	Max 	#pts
+#P-Distr: Beam T-Dist	Uniform			0.912	1.4	200
+#P-Distr: Beam T-Dist	1/x			0.1     0.5     200
+#
+#P-Distr: Beam T-Dist	Uniform			0.35	0.81	200
+P-Distr: Beam T-Dist	Uniform			0.15	1.5	200
+#
+#
+#
+## Beam Angle		Form				Min	  Max  #pts
+#P-Distr: Beam Cos(Theta)   Uniform			0.9999975 1.0  200
+P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)	0.9999975 1.0  200
+#
+## Target particle:
+#Target: 	2.80839 	2.8	20.0   	0.0 0.0 0.0
+# He3
+#Target: 	1000020030 	2.8	20.0   	0.0 0.0 0.0
+#Target: 	1000020030 	2.5	2.0   	0.0 0.0 0.0
+# deuteron
+Target:		1000010020	2.5	2.0	0.0 0.0 0.0
+##
+# 
+##
+## The reaction "particle" QF neutron (quasi free)
+##	  Name		PDG/Res	Decay?	Track?	Parent	 Opt
+Particle: Reaction	P33	1	0	NULL	 Quasi-Free-NBC
+##
+##	  Name		PDG	Decay?	Track?	Parent	Opt
+Particle: QN		2112    1	0	Reaction NULL
+P-Distr: QN P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
+#Particle: PP   		1.8756	0	0	Reaction NULL
+Particle: P	0.938	0	0	Reaction	NULL
+#
+#
+# Decay Delta -> n/p/n pi0/pi-/pi+:
+#
+#Particle: Pi0		111	0	1	QN	NULL
+#Particle: neutron	2112	0	1	QN      NULL
+#Particle: PiMinus       -211	0	1	QN      NULL
+#Particle: proton	2212	0	1	QN      NULL
+Particle: PiPlus       	211	0	1	QN      NULL
+Particle: neutron	2112	0	1	QN      NULL
+#
+#
+#
+#Ntuple-Output:  MC_data/Deut_npiplus_1557MeV_10mln
+Ntuple-Output:  MC_data/Deut_npiplus_1557MeV_5000

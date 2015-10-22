@@ -1,0 +1,63 @@
+#
+#
+#
+#
+##		#events/run	Random seed	#runs
+Number-Throws:   1000	 99257    	1     
+#
+#
+#
+# Hadronic resonances:
+#		Name	PDG code
+Resonance:	P33	2214
+#
+#
+#
+# Beam Parameters:
+#	Mass (GeV)	source x,y,z (cm)
+Beam:	0.0		0.0 0.0 -500.
+#
+#
+#
+# Beam Kinetic Energy	Form			Min	Max 	#pts
+#P-Distr: Beam T-Dist	Uniform			0.912	1.4	200
+#P-Distr: Beam T-Dist	1/x			0.1     0.5     200
+#
+P-Distr: Beam T-Dist	Uniform			0.15	0.49	200
+#
+#
+#
+## Beam Angle		Form				Min	  Max  #pts
+#P-Distr: Beam Cos(Theta)   Uniform			0.9999975 1.0  200
+P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)	0.9999975 1.0  200
+#
+## Target particle:
+#Target: 	2.80839 	2.8	20.0   	0.0 0.0 0.0
+Target: 	1000020030 	2.8	20.0   	0.0 0.0 0.0
+##
+# 
+##
+## The reaction "particle" QF deuteron
+##	  Name		PDG/Res	Decay?	Track?	Parent	 Opt
+Particle: Reaction	1.8756	1	0	NULL	 Quasi-Free-NBC
+##
+##	  Name		PDG	Decay?	Track?	Parent	Opt
+Particle: QD		1,8756    1	0	Reaction NULL
+P-Distr: QD P-Dist x*x*TMath::Gaus(x,0.0,0.045) 0.0 0.5 5000
+Particle: P   0.9838	0	0	Reaction NULL
+#
+#
+# Decay Deut -> pn
+#
+Particle: proton	2212	0	1	QD      NULL
+Particle: neutron	2112	0	1	QD      NULL
+#
+#Particle: PiMinus       -211	0	1	QN      NULL
+#Particle: proton	2212	0	1	QN      NULL
+#
+#
+#
+#Ntuple-Output: /home/daria/geant4/A2/Generated_events/gamma_He3_quasifree_pimp-150-490
+#Ntuple-Output: /home/daria/geant4/A2/Generated_events/gamma_He3_quasifree_pi0n-150-490
+#
+Ntuple-Output: MC_data/He3_test2

@@ -1,0 +1,66 @@
+#
+#
+#
+#
+Number-Throws: 100 	99257	1     ## No of events in each run, random seed, no of runs
+#
+#
+#
+# Hadronic resonances:
+#		Name	PDG code
+Resonance:	P33	2214
+#
+#
+#
+# Beam Parameters:
+#	Mass (GeV)	source x,y,z (cm)
+Beam:	0.0		0.0 0.0 -500.
+#
+#
+#
+# Beam Kinetic Energy	Form			Min	Max 	#pts
+#P-Distr: Beam T-Dist	Uniform			0.912	1.4	200
+#P-Distr: Beam T-Dist	1/x			0.1     0.5     200
+#
+P-Distr: Beam T-Dist	Uniform			0.35	0.40	200
+#
+#
+#
+## Beam Angle		Form				Min	  Max  #pts
+#P-Distr: Beam Cos(Theta)   Uniform			0.9999975 1.0  200
+P-Distr: Beam Cos(Theta)   TMath::Gaus(x,1.0,0.000001)	0.9999975 1.0  200
+#
+#
+# 
+# Target particle:
+#       mass   radius  length   centre(x,y,z)
+Target: 1000020030   2.8	20.0    0.0 0.0 0.0      ## deuterium target
+#
+#
+#
+# Quasi-free target:
+#          QF particle mass (GeV)  recoil mass (GeV)
+#QF-Target: 0.9396                   1.8766             ## Neutron in He3
+#QF-Target: 0.9396                   0.9396             ## Neutron in He3
+#QF-Target: 1.8766                   0.9396             ## Neutron in He3
+#
+#
+#
+# The reaction "particle":
+#Particle: P33   	2214	1	0	NULL	NULL
+#
+#
+#
+# Primary Particles:
+#      	   Name		PDG	Decay?	Track?	Parent	Opt
+#
+Particle: proton	2212	0	1	NULL    NULL
+Particle: neutron	2112	0	1	NULL    NULL
+Particle: proton	2212	0	1	NULL    NULL
+#
+#
+#
+#
+Ntuple-Output: Deut_gn_test
+#
+#Ntuple-Output: 1M_gn_He3_pi0n_test
