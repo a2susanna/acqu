@@ -51,7 +51,9 @@ Branch:   emwpc         1024
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #ROOT file(s) (GEANT4 output) to be analysed. Add more lines for more files
 #
-TreeFile: scratch/geant.root
+#TreeFile: /home/susanna/acqu_jan15/a2geant/geantevts/A2_Deut_npiplus_1557MeV_5000.root
+#TreeFile: /home/susanna/acqu_jan15/a2geant/geantevts/A2_Deut_npiplus_1557MeV_10mln.root
+TreeFile: /home/susanna/acqu_jan15/a2geant/geantevts/A2_Deut_npi0_1557MeV_10mln.root
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -61,7 +63,7 @@ BatchDir: ./
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Directory to save any created ROOT files (include final '/')
-Directory: ./
+Directory: /home/susanna/acqu_jan15/acqu/acqu_user/OfflineAnalysis/Feb14/geant_output/
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
